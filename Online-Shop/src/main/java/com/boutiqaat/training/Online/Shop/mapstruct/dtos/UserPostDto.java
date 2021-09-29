@@ -11,6 +11,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class UserPostDto {
+	
     @JsonProperty("id")
     private int id;
 

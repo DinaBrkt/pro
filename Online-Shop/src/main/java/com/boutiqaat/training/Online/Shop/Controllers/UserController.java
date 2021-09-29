@@ -1,6 +1,7 @@
 package com.boutiqaat.training.Online.Shop.Controllers;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 
 import javax.validation.Valid;
 
@@ -21,6 +22,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.boutiqaat.training.Online.Shop.Entities.User;
+import com.boutiqaat.training.Online.Shop.Feign.CurrencyConversion;
+import com.boutiqaat.training.Online.Shop.Feign.LimitsServiceProxy;
 import com.boutiqaat.training.Online.Shop.Mappers.MapStructMapper;
 import com.boutiqaat.training.Online.Shop.Repositories.UserRepo;
 import com.boutiqaat.training.Online.Shop.Retrofit.RetrofitConfig;
@@ -47,6 +50,7 @@ public class UserController {
 	KafkaTemplate<String,User> kafkaTemplate;
 	private static final String TOPIC ="HelloTopic";
 	
+
 	//create a new user
 	@PostMapping("/mapstruct")
 	public ResponseEntity<Void> createUser(@Valid @RequestBody UserPostDto userpostDto){
@@ -67,6 +71,7 @@ public class UserController {
 		if(response.isSuccessful()) {
 			quote = response.body();
 			System.out.println(quote);
+			
 		}else {
 			int httpErrorCode = response.code();
 			String errorMsg = response.body();
@@ -105,8 +110,6 @@ public class UserController {
 
 	    });
 	}
-	
-	
 	
 	
 }

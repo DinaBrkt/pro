@@ -49,8 +49,25 @@
         </dependency>
         
         <dependency>
+    <groupId>org.springframework.data</groupId>
+    <artifactId>spring-data-elasticsearch</artifactId>
+  </dependency>
+  
+  <dependency>
+  <groupId>org.elasticsearch.client</groupId>
+  <artifactId>transport</artifactId>
+
+  </dependency>
+  
+        
+        <dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-config</artifactId>
+		</dependency>
+		
+		 <dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-openfeign</artifactId>
 		</dependency>
         
         <dependency>
